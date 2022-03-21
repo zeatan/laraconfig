@@ -1,24 +1,26 @@
 <?php
 
-namespace DarkGhostHunter\Laraconfig\Eloquent;
+namespace Nabcellent\Laraconfig\Eloquent;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Carbon;
 
 /**
  * @property-read int $id
  *
- * @property-read string $name
- * @property-read string $type
- * @property-read mixed $default
- * @property-read string $bag
- * @property-read string $group
- * @property-read bool $is_enabled
+ * @property-read string                                             $name
+ * @property-read string                                             $type
+ * @property-read mixed                                              $default
+ * @property-read string                                             $bag
+ * @property-read string                                             $group
+ * @property-read bool                                               $is_enabled
  *
- * @property-read \Illuminate\Support\Carbon $updated_at
- * @property-read \Illuminate\Support\Carbon $created_at
+ * @property-read Carbon                         $updated_at
+ * @property-read Carbon                         $created_at
  *
- * @property-read \Illuminate\Database\Eloquent\Collection|\DarkGhostHunter\Laraconfig\Eloquent\Setting[] $settings
+ * @property-read Collection|Setting[] $settings
  *
  * @internal
  */
@@ -53,7 +55,7 @@ class Metadata extends Model
     /**
      * The settings this metadata has.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany|\DarkGhostHunter\Laraconfig\Eloquent\Setting
+     * @return HasMany|Setting
      */
     public function settings(): HasMany
     {

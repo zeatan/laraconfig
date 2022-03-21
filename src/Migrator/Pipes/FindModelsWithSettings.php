@@ -1,16 +1,16 @@
 <?php
 
-namespace DarkGhostHunter\Laraconfig\Migrator\Pipes;
+namespace Nabcellent\Laraconfig\Migrator\Pipes;
 
 use Closure;
-use DarkGhostHunter\Laraconfig\HasConfig;
-use DarkGhostHunter\Laraconfig\Migrator\Data;
 use Generator;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
+use Nabcellent\Laraconfig\HasConfig;
+use Nabcellent\Laraconfig\Migrator\Data;
 use ReflectionClass;
 use ReflectionException;
 use RuntimeException;
@@ -23,8 +23,8 @@ class FindModelsWithSettings
     /**
      * FindModelsWithSettings constructor.
      *
-     * @param  \Illuminate\Contracts\Foundation\Application  $app
-     * @param  \Illuminate\Filesystem\Filesystem  $filesystem
+     * @param Application $app
+     * @param Filesystem  $filesystem
      *
      * @return void
      */
@@ -35,8 +35,8 @@ class FindModelsWithSettings
     /**
      * Handles the Settings migration.
      *
-     * @param  \DarkGhostHunter\Laraconfig\Migrator\Data  $data
-     * @param  \Closure  $next
+     * @param Data    $data
+     * @param Closure $next
      *
      * @return mixed
      */
@@ -63,7 +63,7 @@ class FindModelsWithSettings
     /**
      * Finds all models from the project.
      *
-     * @return \Generator
+     * @return Generator
      */
     protected function findModelsWithSettings(): Generator
     {

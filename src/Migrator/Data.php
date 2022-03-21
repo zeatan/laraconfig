@@ -1,9 +1,12 @@
 <?php
 
-namespace DarkGhostHunter\Laraconfig\Migrator;
+namespace Nabcellent\Laraconfig\Migrator;
 
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
+use Nabcellent\Laraconfig\Eloquent\Metadata;
+use Nabcellent\Laraconfig\Registrar\Declaration;
 
 /**
  * @internal
@@ -13,21 +16,21 @@ class Data
     /**
      * Database Metadata.
      *
-     * @var \Illuminate\Database\Eloquent\Collection|\DarkGhostHunter\Laraconfig\Eloquent\Metadata[]
+     * @var EloquentCollection|Metadata[]
      */
-    public EloquentCollection $metadata;
+    public EloquentCollection|array $metadata;
 
     /**
      * Declarations.
      *
-     * @var \Illuminate\Support\Collection|\DarkGhostHunter\Laraconfig\Registrar\Declaration[]
+     * @var Collection|Declaration[]
      */
-    public Collection $declarations;
+    public Collection|array $declarations;
 
     /**
      * Models to check for bags.
      *
-     * @var \Illuminate\Support\Collection|\Illuminate\Database\Eloquent\Model[]
+     * @var Collection|Model[]
      */
     public Collection $models;
 

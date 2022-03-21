@@ -2,8 +2,8 @@
 
 namespace Tests\Dummies;
 
-use DarkGhostHunter\Laraconfig\HasConfig;
 use Illuminate\Database\Eloquent\Model;
+use Nabcellent\Laraconfig\HasConfig;
 
 class DummyModelAdminBag extends Model
 {

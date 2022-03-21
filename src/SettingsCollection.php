@@ -1,8 +1,9 @@
 <?php
 
-namespace DarkGhostHunter\Laraconfig;
+namespace Nabcellent\Laraconfig;
 
-use DarkGhostHunter\Laraconfig\Eloquent\Setting;
+use Exception;
+use Nabcellent\Laraconfig\Eloquent\Setting;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Carbon;
@@ -13,7 +14,7 @@ use RuntimeException;
 /**
  * Class SettingsCollection
  *
- * @package DarkGhostHunter\Laraconfig
+ * @package Nabcellent\Laraconfig
  *
  * @method Setting get(string $name, mixed $default = null)
  */
@@ -29,7 +30,7 @@ class SettingsCollection extends Collection
      * is garbage collected. Once done, a `__destruct()` call will be fired, and
      * that is when we will make the cache store regenerate the settings there.
      *
-     * @var \DarkGhostHunter\Laraconfig\SettingsCache|null
+     * @var SettingsCache|null
      */
     public ?SettingsCache $cache = null;
 
@@ -43,7 +44,7 @@ class SettingsCollection extends Collection
     /**
      * Returns all the settings grouped by their group name.
      *
-     * @return static|\DarkGhostHunter\Laraconfig\Eloquent\Setting[]
+     * @return static|Setting[]
      */
     public function groups(): static
     {
@@ -56,7 +57,7 @@ class SettingsCollection extends Collection
      * @param  string  $name
      * @param  mixed|null  $default
      *
-     * @return \Illuminate\Support\Carbon|\Illuminate\Support\Collection|array|string|int|float|bool|null
+     * @return Carbon|\Illuminate\Support\Collection|array|string|int|float|bool|null
      */
     public function value(string $name, mixed $default = null): Carbon|Collection|array|string|int|float|bool|null
     {
@@ -315,7 +316,7 @@ class SettingsCollection extends Collection
      * @param  string  $key
      * @return mixed
      *
-     * @throws \Exception
+     * @throws Exception
      */
     public function __get($key): mixed
     {

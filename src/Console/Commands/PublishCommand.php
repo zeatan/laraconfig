@@ -1,6 +1,6 @@
 <?php
 
-namespace DarkGhostHunter\Laraconfig\Console\Commands;
+namespace Nabcellent\Laraconfig\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;

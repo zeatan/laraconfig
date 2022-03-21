@@ -2,11 +2,7 @@
 
 namespace Tests\Console\Commands;
 
-use DarkGhostHunter\Laraconfig\Eloquent\Metadata;
-use DarkGhostHunter\Laraconfig\Eloquent\Setting as SettingModel;
-use DarkGhostHunter\Laraconfig\Facades\Setting;
-use DarkGhostHunter\Laraconfig\Migrator\Data;
-use DarkGhostHunter\Laraconfig\Registrar\SettingRegistrar;
+use Closure;
 use Illuminate\Contracts\Cache\Factory;
 use Illuminate\Contracts\Cache\Store;
 use Illuminate\Database\Eloquent\Model;
@@ -17,6 +13,12 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Mockery;
+use Mockery\MockInterface;
+use Nabcellent\Laraconfig\Eloquent\Metadata;
+use Nabcellent\Laraconfig\Eloquent\Setting as SettingModel;
+use Nabcellent\Laraconfig\Facades\Setting;
+use Nabcellent\Laraconfig\Migrator\Data;
+use Nabcellent\Laraconfig\Registrar\SettingRegistrar;
 use Tests\BaseTestCase;
 use Tests\Dummies\DummyModel;
 
@@ -74,9 +76,9 @@ class MigrateCommandTest extends BaseTestCase
     /**
      * Executes a callback on "production" environment.
      *
-     * @param  \Closure  $closure
+     * @param  Closure  $closure
      */
-    protected function runWhileOnProduction(\Closure $closure) : void
+    protected function runWhileOnProduction(Closure $closure) : void
     {
         $original = $this->app['env'];
 
@@ -678,7 +680,7 @@ class MigrateCommandTest extends BaseTestCase
 
         $store->forever('laraconfig|Tests\Dummies\DummyModel|1', 'foo');
 
-        /** @var \Mockery\MockInterface $cache */
+        /** @var MockInterface $cache */
         $cache = $this->swap(Factory::class, Mockery::mock(Factory::class));
 
         $cache->shouldReceive('store')
@@ -711,7 +713,7 @@ class MigrateCommandTest extends BaseTestCase
 
         $store->forever('laraconfig|Tests\Dummies\DummyModel|1', 'foo');
 
-        /** @var \Mockery\MockInterface $cache */
+        /** @var MockInterface $cache */
         $cache = $this->swap(Factory::class, Mockery::mock(Factory::class));
 
         $cache->shouldReceive('store')
@@ -744,7 +746,7 @@ class MigrateCommandTest extends BaseTestCase
 
         $store->forever('laraconfig|Tests\Dummies\DummyModel|1', 'foo');
 
-        /** @var \Mockery\MockInterface $cache */
+        /** @var MockInterface $cache */
         $cache = $this->swap(Factory::class, Mockery::mock(Factory::class));
 
         $cache->shouldReceive('store')

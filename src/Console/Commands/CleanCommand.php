@@ -1,9 +1,9 @@
 <?php
 
-namespace DarkGhostHunter\Laraconfig\Console\Commands;
+namespace Nabcellent\Laraconfig\Console\Commands;
 
-use DarkGhostHunter\Laraconfig\Eloquent\Setting;
 use Illuminate\Console\Command;
+use Nabcellent\Laraconfig\Eloquent\Setting;
 
 /**
  * @internal

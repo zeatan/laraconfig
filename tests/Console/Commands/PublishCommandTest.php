@@ -2,23 +2,8 @@
 
 namespace Tests\Console\Commands;
 
-use DarkGhostHunter\Laraconfig\Eloquent\Metadata;
-use DarkGhostHunter\Laraconfig\Eloquent\Setting as SettingModel;
-use DarkGhostHunter\Laraconfig\Facades\Setting;
-use DarkGhostHunter\Laraconfig\Migrator\Data;
-use DarkGhostHunter\Laraconfig\Registrar\SettingRegistrar;
-use Illuminate\Contracts\Cache\Factory;
-use Illuminate\Contracts\Cache\Store;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Filesystem\Filesystem;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Carbon;
-use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\DB;
-use Mockery;
 use Tests\BaseTestCase;
-use Tests\Dummies\DummyModel;
 
 class PublishCommandTest extends BaseTestCase
 {

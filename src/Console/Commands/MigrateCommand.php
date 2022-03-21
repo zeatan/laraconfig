@@ -1,11 +1,11 @@
 <?php
 
-namespace DarkGhostHunter\Laraconfig\Console\Commands;
+namespace Nabcellent\Laraconfig\Console\Commands;
 
-use DarkGhostHunter\Laraconfig\Migrator\Data;
-use DarkGhostHunter\Laraconfig\Migrator\Migrator;
 use Illuminate\Console\Command;
 use Illuminate\Console\OutputStyle;
+use Nabcellent\Laraconfig\Migrator\Data;
+use Nabcellent\Laraconfig\Migrator\Migrator;
 use RuntimeException;
 use Symfony\Component\Console\Input\InputInterface;
 
@@ -34,8 +34,8 @@ class MigrateCommand extends Command
     /**
      * MigrateCommand constructor.
      *
-     * @param  \DarkGhostHunter\Laraconfig\Migrator\Migrator  $migrator
-     * @param  \DarkGhostHunter\Laraconfig\Migrator\Data  $data
+     * @param Migrator $migrator
+     * @param Data     $data
      */
     public function __construct(protected Migrator $migrator, protected Data $data)
     {

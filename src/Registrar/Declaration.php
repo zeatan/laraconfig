@@ -1,9 +1,9 @@
 <?php
 
-namespace DarkGhostHunter\Laraconfig\Registrar;
+namespace Nabcellent\Laraconfig\Registrar;
 
 use Closure;
-use DarkGhostHunter\Laraconfig\Eloquent\Metadata;
+use Nabcellent\Laraconfig\Eloquent\Metadata;
 
 class Declaration
 {
@@ -57,7 +57,7 @@ class Declaration
      *
      * @internal
      *
-     * @var \Closure|null
+     * @var Closure|null
      */
     public null|Closure $using = null;
 
@@ -226,7 +226,7 @@ class Declaration
     /**
      * Registers a callback to migrate the old value to the new one.
      *
-     * @param  \Closure  $callback
+     * @param Closure $callback
      *
      * @return $this
      */
@@ -240,7 +240,7 @@ class Declaration
     /**
      * Transforms the Declaration to a Metadata Model.
      *
-     * @return \DarkGhostHunter\Laraconfig\Eloquent\Metadata
+     * @return Metadata
      */
     public function toMetadata(): Metadata
     {

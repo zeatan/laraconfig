@@ -2,9 +2,9 @@
 
 namespace Tests\Registrar;
 
-use DarkGhostHunter\Laraconfig\Facades\Setting;
-use DarkGhostHunter\Laraconfig\Registrar\SettingRegistrar;
 use Illuminate\Support\Collection;
+use Nabcellent\Laraconfig\Facades\Setting;
+use Nabcellent\Laraconfig\Registrar\SettingRegistrar;
 use Tests\BaseTestCase;
 
 class RegistrarTest extends BaseTestCase

@@ -2,16 +2,15 @@
 
 namespace Tests;
 
-use DarkGhostHunter\Laraconfig\Facades\Setting;
-use DarkGhostHunter\Laraconfig\LaraconfigServiceProvider;
-use DarkGhostHunter\Laraconfig\Registrar\SettingRegistrar;
 use Illuminate\Filesystem\Filesystem;
-use Illuminate\Support\Str;
+use Nabcellent\Laraconfig\Facades\Setting;
+use Nabcellent\Laraconfig\LaraconfigServiceProvider;
+use Nabcellent\Laraconfig\Registrar\SettingRegistrar;
 use SplFileInfo;
 
 class ServiceProviderTest extends BaseTestCase
 {
-    /** @var \Illuminate\Filesystem\Filesystem */
+    /** @var Filesystem */
     protected mixed $filesystem;
 
     protected function setUp(): void
@@ -41,7 +40,7 @@ class ServiceProviderTest extends BaseTestCase
         $this->artisan(
             'vendor:publish',
             [
-                '--provider' => 'DarkGhostHunter\Laraconfig\LaraconfigServiceProvider',
+                '--provider' => 'Nabcellent\Laraconfig\LaraconfigServiceProvider',
                 '--tag' => 'config',
             ]
         )->execute();
@@ -56,7 +55,7 @@ class ServiceProviderTest extends BaseTestCase
         $this->artisan(
             'vendor:publish',
             [
-                '--provider' => 'DarkGhostHunter\Laraconfig\LaraconfigServiceProvider',
+                '--provider' => 'Nabcellent\Laraconfig\LaraconfigServiceProvider',
                 '--tag' => 'migrations',
             ]
         )->run();

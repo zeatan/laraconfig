@@ -1,28 +1,30 @@
 <?php
 
-namespace DarkGhostHunter\Laraconfig\Eloquent;
+namespace Nabcellent\Laraconfig\Eloquent;
 
-use DarkGhostHunter\Laraconfig\MorphManySettings;
-use DarkGhostHunter\Laraconfig\SettingsCache;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Collection;
+use Nabcellent\Laraconfig\MorphManySettings;
+use Nabcellent\Laraconfig\SettingsCache;
 
 /**
- * @property-read \Illuminate\Database\Eloquent\Model $user
+ * @property-read Model                                              $user
  *
- * @property-read int $id
+ * @property-read int                                                $id
  *
- * @property null|array|bool|string|int|float|\Illuminate\Support\Collection|\Illuminate\Support\Carbon $value
- * @property boolean $is_enabled
+ * @property null|array|bool|string|int|float|Collection|Carbon      $value
+ * @property boolean                                                 $is_enabled
  *
- * @property-read string $name // Added by the "add-metadata" global scope.
- * @property-read string $type // Added by the "add-metadata" global scope.
- * @property-read \Illuminate\Support\Carbon|\Illuminate\Support\Collection|array|string|int|float|bool|null $default // Added by the "add-metadata" global scope.
- * @property-read string $group // Added by the "add-metadata" global scope.
- * @property-read string $bag // Added by the "add-metadata" global scope.
+ * @property-read string                                             $name // Added by the "add-metadata" global scope.
+ * @property-read string                                             $type // Added by the "add-metadata" global scope.
+ * @property-read Carbon|Collection|array|string|int|float|bool|null $default // Added by the "add-metadata" global scope.
+ * @property-read string                                             $group // Added by the "add-metadata" global scope.
+ * @property-read string                                             $bag // Added by the "add-metadata" global scope.
  *
- * @property-read \DarkGhostHunter\Laraconfig\Eloquent\Metadata $metadata
+ * @property-read Metadata                                           $metadata
  */
 class Setting extends Model
 {
@@ -68,7 +70,7 @@ class Setting extends Model
     /**
      * Settings cache repository.
      *
-     * @var \DarkGhostHunter\Laraconfig\SettingsCache|null
+     * @var SettingsCache|null
      */
     public ?SettingsCache $cache = null;
 
@@ -102,7 +104,7 @@ class Setting extends Model
     /**
      * The parent metadata.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return BelongsTo
      */
     public function metadata(): BelongsTo
     {
@@ -112,7 +114,7 @@ class Setting extends Model
     /**
      * The user this settings belongs to.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\MorphTo
+     * @return MorphTo
      */
     public function user(): MorphTo
     {
@@ -122,7 +124,7 @@ class Setting extends Model
     /**
      * Fills the settings data from a Metadata model instance.
      *
-     * @param  \DarkGhostHunter\Laraconfig\Eloquent\Metadata  $metadata
+     * @param Metadata $metadata
      *
      * @return $this
      */

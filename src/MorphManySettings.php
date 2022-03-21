@@ -1,18 +1,19 @@
 <?php
 
-namespace DarkGhostHunter\Laraconfig;
+namespace Nabcellent\Laraconfig;
 
-use DarkGhostHunter\Laraconfig\Eloquent\Metadata;
 use Illuminate\Contracts\Cache\Factory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Support\Arr;
+use Nabcellent\Laraconfig\Eloquent\Metadata;
+use Nabcellent\Laraconfig\Eloquent\Setting;
 
 /**
- * @mixin \Illuminate\Database\Eloquent\Builder
- * @mixin \DarkGhostHunter\Laraconfig\Eloquent\Setting
+ * @mixin Builder
+ * @mixin Setting
  *
  * @method Model|HasConfig getParent()
  */
@@ -28,18 +29,18 @@ class MorphManySettings extends MorphMany
     /**
      * The settings cache helper.
      *
-     * @var \DarkGhostHunter\Laraconfig\SettingsCache|null
+     * @var SettingsCache|null
      */
     protected ?SettingsCache $cache = null;
 
     /**
      * MorphManySettings constructor.
      *
-     * @param  \Illuminate\Database\Eloquent\Builder  $query
-     * @param  \Illuminate\Database\Eloquent\Model  $parent
-     * @param  string  $type
-     * @param  string  $id
-     * @param  string  $localKey
+     * @param Builder $query
+     * @param Model   $parent
+     * @param  string $type
+     * @param  string $id
+     * @param  string $localKey
      */
     public function __construct(Builder $query, Model $parent, string $type, string $id, string $localKey)
     {
@@ -51,7 +52,7 @@ class MorphManySettings extends MorphMany
     /**
      * Prepares the relation instance to be handled.
      *
-     * @param  \Illuminate\Database\Eloquent\Model  $parent
+     * @param Model $parent
      *
      * @return void
      */
@@ -75,10 +76,10 @@ class MorphManySettings extends MorphMany
     /**
      * Get the relationship query.
      *
-     * @param  \Illuminate\Database\Eloquent\Builder  $query
-     * @param  \Illuminate\Database\Eloquent\Builder  $parentQuery
-     * @param  array|mixed  $columns
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @param Builder      $query
+     * @param Builder      $parentQuery
+     * @param  array|mixed $columns
+     * @return Builder
      */
     public function getRelationExistenceQuery(Builder $query, Builder $parentQuery, $columns = ['*']): Builder
     {
@@ -157,9 +158,9 @@ class MorphManySettings extends MorphMany
     /**
      * Adds a cache instance to the setting models, if there is one.
      *
-     * @param  \Illuminate\Database\Eloquent\Collection  $settings
+     * @param EloquentCollection $settings
      *
-     * @return \Illuminate\Database\Eloquent\Collection
+     * @return EloquentCollection
      */
     protected function prepareCollection(EloquentCollection $settings): EloquentCollection
     {

@@ -1,13 +1,14 @@
 <?php
 
-namespace DarkGhostHunter\Laraconfig\Eloquent\Scopes;
+namespace Nabcellent\Laraconfig\Eloquent\Scopes;
 
-use DarkGhostHunter\Laraconfig\Eloquent\Metadata;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Scope;
 use Illuminate\Database\Query\Builder as QueryBuilder;
 use Illuminate\Support\Collection;
+use Nabcellent\Laraconfig\Eloquent\Metadata;
+use Nabcellent\Laraconfig\HasConfig;
 
 /**
  * @internal
@@ -17,8 +18,8 @@ class AddMetadata implements Scope
     /**
      * Apply the scope to a given Eloquent query builder.
      *
-     * @param  \Illuminate\Database\Eloquent\Builder  $builder
-     * @param  \Illuminate\Database\Eloquent\Model|\DarkGhostHunter\Laraconfig\HasConfig  $model
+     * @param Builder         $builder
+     * @param Model|HasConfig $model
      *
      * @return void
      */

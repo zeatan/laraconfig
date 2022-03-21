@@ -1,13 +1,13 @@
 <?php
 
-namespace DarkGhostHunter\Laraconfig;
+namespace Nabcellent\Laraconfig;
 
-use DarkGhostHunter\Laraconfig\Registrar\SettingRegistrar;
 use Generator;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Collection;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
+use Nabcellent\Laraconfig\Registrar\SettingRegistrar;
 
 /**
  * @internal
@@ -67,7 +67,7 @@ class LaraconfigServiceProvider extends ServiceProvider
     /**
      * Returns the migration file destination path name.
      *
-     * @return \Generator
+     * @return Generator
      */
     protected function migrationPathNames(): Generator
     {

@@ -1,6 +1,6 @@
 <?php
 
-namespace DarkGhostHunter\Laraconfig\Registrar;
+namespace Nabcellent\Laraconfig\Registrar;
 
 use Illuminate\Contracts\Config\Repository;
 use Illuminate\Contracts\Foundation\Application;
@@ -36,11 +36,11 @@ class SettingRegistrar
     /**
      * SettingCollection constructor.
      *
-     * @param  \Illuminate\Contracts\Config\Repository  $config
-     * @param  \Illuminate\Support\Collection  $declarations
-     * @param  \Illuminate\Support\Collection  $migrations
-     * @param  \Illuminate\Filesystem\Filesystem  $filesystem
-     * @param  \Illuminate\Contracts\Foundation\Application  $app
+     * @param Repository  $config
+     * @param Collection  $declarations
+     * @param Collection  $migrations
+     * @param Filesystem  $filesystem
+     * @param Application $app
      */
     public function __construct(
         protected Repository $config,
@@ -75,7 +75,7 @@ class SettingRegistrar
     /**
      * Returns the settings collection.
      *
-     * @return \Illuminate\Support\Collection
+     * @return Collection
      */
     public function getDeclarations(): Collection
     {
@@ -85,7 +85,7 @@ class SettingRegistrar
     /**
      * Returns a collection of declaration that migrates to another.
      *
-     * @return \Illuminate\Support\Collection|\DarkGhostHunter\Laraconfig\Registrar\Declaration[]
+     * @return Collection|Declaration[]
      */
     public function getMigrable(): Collection
     {
@@ -98,7 +98,7 @@ class SettingRegistrar
      *
      * @param  string  $name
      *
-     * @return \DarkGhostHunter\Laraconfig\Registrar\Declaration
+     * @return Declaration
      */
     public function name(string $name): Declaration
     {

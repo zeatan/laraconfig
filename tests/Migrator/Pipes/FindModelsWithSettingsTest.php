@@ -2,11 +2,13 @@
 
 namespace Tests\Migrator\Pipes;
 
-use DarkGhostHunter\Laraconfig\Migrator\Data;
-use DarkGhostHunter\Laraconfig\Migrator\Pipes\FindModelsWithSettings;
+use App\Models\Foo;
+use App\Quz;
+use App\UsesTraitOfTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Filesystem\Filesystem;
-use Illuminate\Support\Str;
+use Nabcellent\Laraconfig\Migrator\Data;
+use Nabcellent\Laraconfig\Migrator\Pipes\FindModelsWithSettings;
 use Tests\BaseTestCase;
 
 
@@ -28,7 +30,7 @@ class FindModelsWithSettingsTest extends BaseTestCase
 
 namespace App;
 
-use DarkGhostHunter\Laraconfig\HasConfig;
+use Nabcellent\Laraconfig\HasConfig;
 use Illuminate\Database\Eloquent\Model;
 
 class Quz extends Model
@@ -56,7 +58,7 @@ CONTENT
 
 namespace App;
 
-use DarkGhostHunter\Laraconfig\HasConfig;
+use Nabcellent\Laraconfig\HasConfig;
 
 trait TraitOfTrait
 {
@@ -118,8 +120,8 @@ CONTENT
         $result = $pipe->handle($data, fn ($data) => $data);
 
         static::assertCount(2, $result->models);
-        static::assertInstanceOf(\App\Quz::class, $result->models->get(0));
-        static::assertInstanceOf(\App\UsesTraitOfTrait::class, $result->models->get(1));
+        static::assertInstanceOf(Quz::class, $result->models->get(0));
+        static::assertInstanceOf(UsesTraitOfTrait::class, $result->models->get(1));
     }
 
     public function test_reads_models_in_model_dir(): void
@@ -133,7 +135,7 @@ CONTENT
 
 namespace App\Models;
 
-use DarkGhostHunter\Laraconfig\HasConfig;
+use Nabcellent\Laraconfig\HasConfig;
 use Illuminate\Database\Eloquent\Model;
 
 class Foo extends Model
@@ -172,7 +174,7 @@ CONTENT
 
 namespace App;
 
-use DarkGhostHunter\Laraconfig\HasConfig;
+use Nabcellent\Laraconfig\HasConfig;
 
 class NormalClass
 {
@@ -192,7 +194,7 @@ CONTENT
         $result = $pipe->handle($data, fn ($data) => $data);
 
         static::assertCount(1, $result->models);
-        static::assertInstanceOf(\App\Models\Foo::class, $result->models->first());
+        static::assertInstanceOf(Foo::class, $result->models->first());
     }
 
     protected function tearDown(): void

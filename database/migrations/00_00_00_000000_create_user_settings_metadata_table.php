@@ -1,11 +1,10 @@
 <?php
 
-use Illuminate\Contracts\Cache\Repository;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUserSettingsMetadataTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +13,7 @@ class CreateUserSettingsMetadataTable extends Migration
      */
     public function up(): void
     {
-        Schema::create('user_settings_metadata', function (Blueprint $table): void {
+        Schema::create('user_settings_metadata', function(Blueprint $table): void {
             $table->id();
 
             $table->string('name')->unique();
@@ -38,4 +37,4 @@ class CreateUserSettingsMetadataTable extends Migration
     {
         Schema::dropIfExists('user_settings_metadata');
     }
-}
+};
