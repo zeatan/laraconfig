@@ -370,7 +370,7 @@ class MigrateCommandTest extends BaseTestCase
         $this->assertDatabaseHas('user_settings', [
             'id' => 1,
             'metadata_id' => 1,
-            'settable_type' => DummyModel::class,
+            'settable_type' => "Tests\\\\Dummies\\\\DummyModel",
             'settable_id' => 1,
             'value' => '',
             'is_enabled' => true,
