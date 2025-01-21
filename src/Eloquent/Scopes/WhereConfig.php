@@ -48,7 +48,7 @@ class WhereConfig implements Scope
     public static function whereConfig(
         Builder $builder,
         string|array $name,
-        string $operator = null,
+        ?string $operator = null,
         $value = null,
         string $boolean = 'and'
     ): Builder {
@@ -94,7 +94,7 @@ class WhereConfig implements Scope
     public static function orWhereConfig(
         Builder $builder,
         string|array $name,
-        string $operator = null,
+        ?string $operator = null,
         $value = null,
     ): Builder {
         return static::whereConfig($builder, $name, $operator, $value, 'or');
